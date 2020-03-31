@@ -1,0 +1,26 @@
+server:
+  port: 8802
+
+#security:
+#  user:
+#    name: WDKE
+#    password: TAL-WDKE
+#defaultZone: http://${security.user.name}:${security.user.password}@localhost:1111/eureka/
+
+
+eureka:
+  server:
+    enableSelfPreservation: true
+    eviction-interval-timer-in-ms: 5000
+  instance:
+    prefer-ip-address: true
+#    ip-address: 47.104.219.118
+#    instance-id: ${eureka.instance.ip-address}:${spring.application.name}:${server.port}
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: http://49.233.195.134:${server.port}/eureka/,http://47.104.219.118:${server.port}/eureka/
+spring:
+  application:
+    name: eureka-server
